@@ -1,0 +1,29 @@
+spring:
+    profiles:
+        active: dev
+    datasource:
+            url: jdbc:h2:file:~/test;MODE=MYSQL
+            username: sa
+            password:
+            driverClassName: org.h2.Driver
+    h2:
+      console:
+        enabled: true
+        path: /h2-console     
+
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        openInView: false
+        generate-ddl: true
+        hibernate:
+            ddl-auto: create-drop
+        properties:
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            
+    liquibase:  
+        change-log: classpath:db/changelog/db.changelog-master.yaml
+  
+server:
+  port: 9999

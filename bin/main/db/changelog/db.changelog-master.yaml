@@ -1,0 +1,19 @@
+databaseChangeLog:
+   - changeSet:
+      id: 1
+      author: islavov
+      changes:
+        - createTable:
+            tableName: Users
+            columns:
+              - column:
+                  name: id
+                  type: number
+                  autoIncrement: true
+                  constraints:
+                    - primaryKeyName: user_pk
+                    - primaryKey: true
+                    - nullable: false
+              - column:
+                  name: username
+                  type: varchar(100)
